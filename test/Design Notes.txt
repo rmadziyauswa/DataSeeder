@@ -1,0 +1,23 @@
+Design Notes
+
+User enters Database credentials
+	- Database Instance (Host)
+	- Database Name
+	- User
+	- Password
+
+System Connects To Database using above credentials and presents the available tables and their columns and max lengths
+
+Tables (SELECT * FROM sys.objects Where type_desc = 'USER_TABLE')
+	Columns (Data Types - Max Length) (SELECT * FROM sys.columns
+									WHERE object_id IN (SELECT object_id FROM sys.objects Where type_desc = 'USER_TABLE'))
+
+User Selects The Tables He Wants To Seed Data and the Columns to Seed
+
+User enters number of rows they want seeded
+
+After submitting, the system goes thru
+	- the list of selected tables
+		- The list of selected columns per table
+			- gets the columns data type and max length
+				-generates a random string,date or number that fits the column data type and max length

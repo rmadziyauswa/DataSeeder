@@ -1,0 +1,48 @@
+/**********************
+
+Color 1 = #91D9D2
+Color 2 = #ACF2EF
+Color 3 = #E6F2DC
+Color 4 = #F2D2B6
+Color 5 = #D9B9A7
+
+***********************/
+
+#main{
+	background-color: #91D9D2;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #91D9D2;
+}
+
+.navbar-inverse {
+    background-color: #91D9D2;
+    border-color: #91D9D2;
+    color: ##046FCC;
+    font-variant: small-caps;
+}
+
+.navbar-brand {
+    font-size: 2em;
+}
+
+.navbar-inverse .navbar-brand {
+    color: inherit;
+}
+
+#jumbo-icon{
+	font-size: 150px;
+    margin: 0 auto;
+}
+
+div.jumbotron .col-md-6:last-child{
+	text-align: center;
+	padding: 10px 0;
+}
+
+div#view-container {
+    max-width: 800px;
+    max-height: 600px;
+    overflow: scroll;
+}

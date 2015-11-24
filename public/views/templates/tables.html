@@ -1,0 +1,63 @@
+<div class="row">
+
+	<div class="col-md-4">
+		<div class="input-group">
+			<span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+			<input type="search" name="txtSearch" id="txtSearch" placeholder="Search Tables" ng-model="search" class="form-control">
+			<span class="input-group-btn">
+				<button ng-click="clearSearch()" class="btn btn-warning" type="button"><span class="glyphicon glyphicon-remove"></span></button>
+			</span>
+		</div>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="table in tables | filter:search track by $index ">				
+				<a ng-click="getColumns(table.name)">
+					<span class="glyphicon glyphicon-list-alt"></span>
+					{{ table.name }}
+				</a>
+
+				<a ng-click="previewData(table.name)">Preview Data</a>	
+			</li>
+		</ul>
+	</div>
+
+	<div class="col-md-8" id="view-container">
+		<div id="column-view" ng-show="currentView === 'Columns' ? true : false">
+
+			<h2 ng-show="currentTableName">{{ columns.length }} Columns From : {{ currentTableName }}</h2>
+			<ul class="list-group">
+				<li class="list-group-item" ng-repeat="column in columns track by $index ">
+					
+					<div class="row">
+						<div class="col-md-6">
+							<input type="checkbox" name="chk{{ column.name }}">
+							{{ column.name }}
+						</div>
+						<div class="col-md-6">{{ column.type_name }}</div>					
+					</div>
+						
+				</li>
+			</ul>
+
+
+		</div>
+
+		<div id="data-view" ng-show="currentView === 'Data' ? true : false">
+			<h1>Data Preview For : {{ currentTableName }}</h1>
+			<table class="table">
+				<thead>
+					<th ng-repeat="(key,val) in headerObject">{{ key }}</th>
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in dataItems">
+						<td ng-repeat="(key,val) in item"> 
+							{{ val }}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+		
+
+</div>	
