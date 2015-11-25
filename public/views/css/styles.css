@@ -7,6 +7,10 @@ Color 4 = #F2D2B6
 Color 5 = #D9B9A7
 
 ***********************/
+a{
+    cursor: pointer;
+
+}
 
 #main{
 	background-color: #91D9D2;
@@ -41,8 +45,8 @@ div.jumbotron .col-md-6:last-child{
 	padding: 10px 0;
 }
 
-div#view-container {
+/*div#view-container {
     max-width: 800px;
     max-height: 600px;
     overflow: scroll;
-}
+}*/

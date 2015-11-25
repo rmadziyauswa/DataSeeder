@@ -1,0 +1,37 @@
+<div id="data-view">
+	<h1>Data Preview For : {{ currentTableName }}</h1>
+	<div class="btn-group">
+		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expaanded="false">Number Of Rows
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li ng-repeat="rowOption in rowsOptions"><a ng-click="limitRows(0,rowOption)">{{ rowOption }}</a></li>
+		</ul>
+	</div>
+
+
+	<div class="btn-group">
+		<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expaanded="false">Jump To Page
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li ng-repeat="page in pages"><a ng-click="pageChange(page)">{{ page }}</a></li>
+		</ul>
+	</div>
+
+	<span> Page {{currentPage}} of {{num_pages}}</span>
+
+
+	<table class="table">
+		<thead>
+			<th ng-repeat="(key,val) in headerObject">{{ key }}</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="item in dataItems">
+				<td ng-repeat="(key,val) in item"> 
+					{{ val }}
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

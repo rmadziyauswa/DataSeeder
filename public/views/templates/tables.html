@@ -15,13 +15,13 @@
 					{{ table.name }}
 				</a>
 
-				<a ng-click="previewData(table.name)">Preview Data</a>	
+				<a href="#/data/{{ table.name }}" class="btn">Preview Data</a>
 			</li>
 		</ul>
 	</div>
 
 	<div class="col-md-8" id="view-container">
-		<div id="column-view" ng-show="currentView === 'Columns' ? true : false">
+		<div id="column-view">
 
 			<h2 ng-show="currentTableName">{{ columns.length }} Columns From : {{ currentTableName }}</h2>
 			<ul class="list-group">
@@ -41,21 +41,6 @@
 
 		</div>
 
-		<div id="data-view" ng-show="currentView === 'Data' ? true : false">
-			<h1>Data Preview For : {{ currentTableName }}</h1>
-			<table class="table">
-				<thead>
-					<th ng-repeat="(key,val) in headerObject">{{ key }}</th>
-				</thead>
-				<tbody>
-					<tr ng-repeat="item in dataItems">
-						<td ng-repeat="(key,val) in item"> 
-							{{ val }}
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 		
 	</div>
 		

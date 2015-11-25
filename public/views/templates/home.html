@@ -2,11 +2,12 @@
 	<div class="row">
 		<div class="col-md-6">
 			<p class="jumbo-welcome">
-				Generate Random Data For Your SQL Server Database.<br>
+				Currently Connected To :
+				<h3>{{ app.db_server + "/" + app.database }}</h3>
 				Use it to test your database.<br>
 				Use it to test your app<br>
 			</p>
-			<button class="btn btn-warning" id="btnGetStarted">Get Started</button>
+			<a href="#/tables" class="btn btn-warning" id="btnGetStarted">Get Started</a>
 		</div>
 		<div class="col-md-6">
 			<span class="glyphicon glyphicon-list-alt" id="jumbo-icon"></span>
