@@ -24,6 +24,22 @@
 		<div id="column-view">
 
 			<h2 ng-show="currentTableName">{{ columns.length }} Columns From : {{ currentTableName }}</h2>
+
+			<form class="form-horizontal" ng-submit="seedRows($event)">
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="select">Number of Rows To Seed (Insert) : </label>
+					<div class="col-md-4">
+						<select class="form-control" id="select" name="select" ng-model="currentSeedRows">
+							<option ng-repeat="seed in seeds">{{ seed }}</option>
+						</select>
+					</div>
+					<div class="col-md-4">
+						<input type="hidden" name="table" id="table" value="{{ currentTableName }}">
+						<button class="btn btn-primary" type="submit">Seed Data</button>
+					</div>
+				</div>
+			</form>
+
 			<ul class="list-group">
 				<li class="list-group-item" ng-repeat="column in columns track by $index ">
 					

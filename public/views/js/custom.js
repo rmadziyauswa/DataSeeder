@@ -55,6 +55,10 @@
 
 			getAppInfo : function(){
 				return $http.get(baseUrl + "/api/app/");
+			},
+
+			seedRows : function(formData){
+				return $http.post(baseUrl + "/api/seedrows", formData);
 			}
 		};
 
@@ -72,9 +76,28 @@
 			
 		$scope.tables = [];
 
+		$scope.seeds = [10,20,50,100,500,1000];
+
+		$scope.currentSeedRows = $scope.seeds[0];
+
 		Base.getTables().then(function(response){
 			$scope.tables = response.data;
 		});
+
+		$scope.seedRows = function($event){
+
+			var formData = {
+				table : $scope.currentTableName,
+				rows : $scope.currentSeedRows
+			};
+
+
+			Base.seedRows(formData).then(function(response){
+				console.log("Form Data = ",formData);
+				console.log("Response Data = ",response.data);
+			});
+
+		}
 
 
 		$scope.clearSearch = function(){
@@ -102,24 +125,26 @@
 			$scope.currentTableName = tablename;	
 			$scope.currentPage = 1;
 
-			// $scope.rowsOptions = [5,10,20,50];
-			$scope.rowsOptions = [2,3,5];
+			$scope.rowsOptions = [5,10,20,50,100];
+			// $scope.rowsOptions = [2,3,5];
 			$scope.currentRowsOption = $scope.rowsOptions[0];
 
 			$scope.pageChange = function(pageNum){
 				$scope.limitRows((pageNum * $scope.currentRowsOption), $scope.currentRowsOption);
 
-				$scope.currentPage = pageNum;
+				$scope.currentPage = pageNum + 1;
 
 			}
 
 			$scope.limitRows = function(startPos, rowsOption){
 				$scope.currentRowsOption = rowsOption;
 
+				$scope.currentPage = 1;
+
 				$scope.num_pages = Math.ceil($scope.allData.length / rowsOption);
 				$scope.pages = [];
 
-				for(var i = 1; i < $scope.num_pages; i++){
+				for(var i = 0; i < $scope.num_pages; i++){
 					$scope.pages.push(i);
 				}
 

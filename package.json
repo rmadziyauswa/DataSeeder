@@ -2,7 +2,7 @@
   "name": "DataSeeder",
   "version": "1.0.0",
   "description": "Data Seeder For Microsoft SQL Server",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --reporter spec"
   },

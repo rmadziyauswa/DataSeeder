@@ -9,6 +9,11 @@ var express = require('express'),
 var app = express();
 var static_path = path.join(__dirname,'public/views');
 
+//for passing request.body
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+
 app.use(morgan('dev'));
 app.use(favicon(path.join(__dirname,'public/favicon.jpg')));
 

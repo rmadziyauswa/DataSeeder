@@ -50,3 +50,11 @@ div.jumbotron .col-md-6:last-child{
     max-height: 600px;
     overflow: scroll;
 }*/
+
+
+#divTableData {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin: 0;
+}
